@@ -1,11 +1,14 @@
-
-import './App.css';
 import {useEffect, useState} from 'react';
 import LoginScreen from './LoginScreen';
-import Header from './components/Header';
+import Header from './Header';
+
+import {Link, NavLink, Routes, Route, useLocation} from 'react-router-dom';
+import '../App.css';
 
 function App() {
   const [user, setUser] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     async function fetchUser(){
       let req = await fetch('/me')
@@ -21,13 +24,16 @@ function App() {
     }
     fetchUser();
   }, []);
+    
   if (!user) {
-    return <LoginScreen setUser={setUser}/>;
+    return <LoginScreen setUser={setUser} />;
   }
 
   return (
     <div className="App">
-     <Header setUser={setUser}/>
+      <Header setUser={setUser}/>
+      
+      
     </div>
   );
 }

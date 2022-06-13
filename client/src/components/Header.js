@@ -7,7 +7,7 @@ function Header({setUser}){
         method: "DELETE"
     })
     setUser(null)
-    nav("/");
+    nav("/landing");
 }
 return(
   <header>

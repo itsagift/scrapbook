@@ -1,6 +1,8 @@
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 
 function SignupForm ({setUser}) {
+  let navigate = useNavigate();
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -14,7 +16,7 @@ function SignupForm ({setUser}) {
         })
         let res = await req.json();
         if (req.ok) {
-          setUser(res.username)
+          navigate("/landing", { replace: true });
         }
         else {
           alert(res.errors)
