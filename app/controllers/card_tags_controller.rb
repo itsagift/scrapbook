@@ -1,0 +1,2 @@
+class CardTagsController < ApplicationController
+end

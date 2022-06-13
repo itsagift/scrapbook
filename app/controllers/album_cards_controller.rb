@@ -1,0 +1,3 @@
+class AlbumCardsController < ApplicationController
+  
+end
