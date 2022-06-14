@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import LoginScreen from './LoginScreen';
 import Header from './Header';
+import AlbumList from './AlbumList';
 
 import {Link, NavLink, Routes, Route, useLocation} from 'react-router-dom';
 import '../App.css';
@@ -32,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <Header setUser={setUser}/>
-      
+      <AlbumList />
       
     </div>
   );

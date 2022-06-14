@@ -12,8 +12,7 @@ body{
 }
 
 .login-screen{
-  min-width: 30%;
-  max-width: 600px;
+  
 }
 
 .login-links{
@@ -71,5 +70,17 @@ body{
 
 .modal-hide{
   display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .login-screen {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1200px) {
+  .login-screen {
+    width: 100%;
+  }
 }
 

@@ -16,7 +16,7 @@ function SignupForm ({setUser}) {
         })
         let res = await req.json();
         if (req.ok) {
-          navigate("/landing", { replace: true });
+          navigate("/", { replace: true });
         }
         else {
           alert(res.errors)
