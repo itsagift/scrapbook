@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_06_14_142222) do
   create_table "cards", force: :cascade do |t|
     t.string "description"
     t.integer "year"
+    t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

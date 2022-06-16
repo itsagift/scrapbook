@@ -1,5 +1,22 @@
+
+*{
+  box-sizing: border-box;
+}
+html{
+  padding: 0;
+  margin: 0;
+}
 body{
   background-color: #fff;
+
+  --pink-theme-color: #FEB7C7;
+  --orange-theme-color: #F95B3D;
+  --blue-theme-color: #4654A3;
+  --light-blue-theme-color: #E6E9F5;
+  --dark-blue-theme-color: #280949;
+}
+.App{
+  height:100vh;
 }
 
 .login-screen-container{
@@ -49,7 +66,17 @@ body{
   margin-bottom:0;
   display: flex;
   flex-direction: column;
-  
+}
+.header{
+  height: 5vh;
+}
+
+.dashboard{
+  height: 100%;
+  padding: 0 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .form-button{
@@ -72,15 +99,44 @@ body{
   display: none;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
   .login-screen {
-    width: 70%;
+    width: 60%;
   }
 }
 
-@media only screen and (min-width: 701px) and (max-width: 1200px) {
+@media only screen and (min-width: 801px) and (max-width: 1500px) {
   .login-screen {
-    width: 100%;
+    width: 560px;
   }
 }
 
+.album-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.album-list-item{
+  width: 150px;
+  height: 180px;
+  margin-right: 10px;
+  border: 1px solid var(--light-blue-theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.new-button{
+  background-color: var(--light-blue-theme-color);
+  position: relative;
+}
+
+/* .album-list-item:nth-child(2n) {
+  background: var(--card_2);
+  border: 1px solid var(--card_2)
+}
+.album-list-item:nth-child(3n) {
+  background: var(--card_3);
+  border: 1px solid var(--card_3)
+} */

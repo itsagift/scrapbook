@@ -10,7 +10,7 @@ function Header({setUser}){
     nav("/");
 }
 return(
-  <header>
+  <header className='header'>
     <Link to="/dashboard">Home</Link>
     <button onClick={() => {handleLogout()}}>logout</button>
   </header>

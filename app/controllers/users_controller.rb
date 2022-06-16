@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     users = User.all
     render json: users
   end
+  
   def show
     render json: @current_user
   end
