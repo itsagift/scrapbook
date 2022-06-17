@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 import LoginScreen from './components/LoginScreen';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
@@ -8,7 +8,7 @@ function App() {
   const [user, setUser] = useState("");
   
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     async function fetchUser(){
       let req = await fetch('/me')
       if (req.ok){

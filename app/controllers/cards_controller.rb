@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   def index 
-    cards = Card.all.includes(card_image_attachment: :blob)
+    cards = Card.all
     render json: cards
   end
 
@@ -18,8 +18,8 @@ class CardsController < ApplicationController
   def update
     card = Card.find(params[:id])
     card.update(card_image: params[:card_image])
-    card_image_url = rails_blob_path(card.card_image)
-    render json: {card: card, card_image_url: card_image_url}
+    card.update(image_url: rails_blob_path(card.card_image))
+    render json: card
   end
 
   def destroy

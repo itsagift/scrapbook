@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :card_tags
   resources :tags
   resources :cards, only: [:index, :show, :create, :update, :destroy]
-  resources :albums
+  resources :albums, only: [:index, :show, :create, :update, :destroy]
 
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'

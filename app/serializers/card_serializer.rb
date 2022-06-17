@@ -1,5 +1,5 @@
 class CardSerializer < ActiveModel::Serializer
-  attributes :id, :tags, :albums, :description, :year
+  attributes :id, :tags, :albums, :description, :year, :image_url
 
   def tags 
     self.object.card_tags.map do |tag|

@@ -1,8 +1,11 @@
 import {useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom'
 
 function LoginForm({setUser}){
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  let navigate = useNavigate();
 
   const handleLogin = async () => {
     let req = await fetch('/login', {
@@ -13,6 +16,7 @@ function LoginForm({setUser}){
     let res = await req.json()
     if (req.ok) {
       setUser(res.username)
+      navigate('/');
     }
     else {
       alert(res.error)

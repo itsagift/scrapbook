@@ -31,7 +31,7 @@ function NewCard({setCards, cards}){
             "Content-Type": "application/json",
             "Accept": "application/json"
           },
-          body: JSON.stringify({card_image_url: blob.signed_id})
+          body: JSON.stringify({card_image: blob.signed_id})
         })
         .then(response => response.json())
         .then(card => console.log(card))

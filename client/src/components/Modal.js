@@ -1,6 +1,8 @@
 import {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function Modal({children, showModal, setShowModal}){
+  let navigate = useNavigate();
   useEffect(() => {
     function handleEscapeKey(e) {
       if (e.code === 'Escape') {
@@ -14,11 +16,11 @@ function Modal({children, showModal, setShowModal}){
   
   
   function handleModal(){
-    setShowModal(false)
+    navigate(-1);
   }
 
   return(
-    <div className={showModal ? 'modal' : 'modal-hide'}>
+    <div className="modal">
       <div className='modal-content'>
         {children}
         <button onClick={()=> handleModal()}>Close</button>
