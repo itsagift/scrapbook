@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react';
 import CardListItem from './CardListItem';
 import Modal from '../Modal';
 import NewCard from './NewCard';
-import CardModal from './CardModal'
 
 import { Routes, Route, Link } from 'react-router-dom';
 
@@ -44,7 +43,7 @@ return(
         )
       })
     }
-    <Link to="/new-album">
+    <Link to="/new-card">
     <div className={newCardClass} data-hover={cardHoverText}>+</div></Link>
   </div>
   

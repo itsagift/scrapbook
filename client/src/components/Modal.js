@@ -22,8 +22,8 @@ function Modal({children, showModal, setShowModal}){
   return(
     <div className="modal">
       <div className='modal-content'>
-        {children}
         <button onClick={()=> handleModal()}>Close</button>
+        {children}
       </div>
     </div>
   )

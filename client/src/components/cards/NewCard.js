@@ -34,20 +34,22 @@ function NewCard({setCards, cards}){
           body: JSON.stringify({card_image: blob.signed_id})
         })
         .then(response => response.json())
-        .then(card => console.log(card))
+        .then(card => setCards(prevState => [...prevState, card]))
         console.log(cards)
       }
     })
   }
 return(
+  <div className='new-card'>
   <form onSubmit={(e) => {
     e.preventDefault();
     handleSubmit()
   }}>
-<input type="text" onChange={(e) => setDescription(e.target.value)} value={description}></input>
-<input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
-<input type="submit" value="submit test"></input>
-</form>
+  <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}></input>
+  <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
+  <input type="submit" value="submit test"></input>
+  </form>
+</div>
 )
 }
 

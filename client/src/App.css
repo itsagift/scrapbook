@@ -9,11 +9,11 @@ html{
 body{
   background-color: #fff;
 
-  --pink-theme-color: #FEB7C7;
-  --orange-theme-color: #F95B3D;
-  --blue-theme-color: #4654A3;
-  --light-blue-theme-color: #e6e9f5;
-  --dark-blue-theme-color: #280949;
+  --bright-one: #FEB7C7;
+  --bright-two: #F95B3D;
+  --bright-three: #4654A3;
+  --accent-light: #e6e9f5;
+  --accent-dark: #280949;
 }
 a{
   text-decoration: none;
@@ -94,24 +94,19 @@ a{
   width: 100%; 
   height: 100%; 
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.6);
 }
 
-.modal-hide{
-  display: none;
+.modal-content{
+  background-color: #fff;
+  margin: 25vh auto;
+  padding: 50px;
+  padding-bottom: 100px;
+  width: 50%;
+  position: relative;
 }
 
-@media only screen and (max-width: 800px) {
-  .login-screen {
-    width: 60%;
-  }
-}
 
-@media only screen and (min-width: 801px) and (max-width: 1500px) {
-  .login-screen {
-    width: 560px;
-  }
-}
 
 .album-list{
   display: flex;
@@ -120,7 +115,7 @@ a{
 
 .list-item{
   margin-right: 10px;
-  border: 1px solid var(--light-blue-theme-color);
+  border: 1px solid var(--accent-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +128,7 @@ a{
 }
 
 .new-button{
-  background-color: var(--light-blue-theme-color);
+  background-color: var(--accent-light);
   position: relative;
   font-size: 25px;
   transition: 0.4s;
@@ -142,14 +137,14 @@ a{
 .first-list-item{
   width: 100%;
   height: 180px;
-  background-color: var(--light-blue-theme-color);
+  background-color: var(--accent-light);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.first-list-item--link{
+.first-list-item-button{
   margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -193,7 +188,7 @@ a{
 .card-list-item{
   width: 100px;
   height: 100px;
-  background-color: var(--light-blue-theme-color);
+  background-color: var(--accent-light);
   margin-right: 10px;
   margin-bottom: 10px;
   display: flex;
@@ -210,11 +205,106 @@ a{
   opacity: 0.8;
 }
 
-/* .album-list-item:nth-child(2n) {
-  background: var(--card_2);
-  border: 1px solid var(--card_2)
+.new-album{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
-.album-list-item:nth-child(3n) {
-  background: var(--card_3);
-  border: 1px solid var(--card_3)
-} */
+
+.new-album-test{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.new-album-input{
+  width: 100%;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid var(--bright-three);
+}
+
+
+.slide-button {
+  
+  padding: 10px;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  width: 30%;
+  font-weight: bold;
+}
+
+.slide-button-nav{
+  border: 1px solid var(--bright-three);
+  background: var(--accent-light);
+  color: var(--bright-three)
+}
+
+.slide-button-left{
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+}
+
+.slide-button-right{
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+}
+
+.slide-button-done{
+  background-color: var(--bright-three);
+  border: 1px solid var(--accent-light);
+}
+
+.album-card-selection-grid{
+  background-color: var(--accent-light);
+  width: 100%;
+  height: 200px;
+  overflow: scroll;
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-auto-rows: 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 10px 10px;
+  padding: 10px;
+}
+
+.album-card-selection-img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.album-card-selection{
+  position: relative;
+  display: block;
+  background-color: #F95B3D;
+}
+.album-card-checkbox{
+  position: absolute; 
+  bottom: 0px; 
+  right: 0px;
+}
+
+@media only screen and (max-width: 800px) {
+  .login-screen {
+    width: 60%;
+  }
+  .modal-content{
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1500px) {
+  .login-screen {
+    width: 560px;
+    
+  }
+  .modal-content{
+    min-width: 720px;
+  }
+}

@@ -5,10 +5,15 @@ import { Routes, Route, Link } from 'react-router-dom'
 import AlbumListItem from './AlbumListItem';
 import Modal from '../Modal';
 import NewAlbum from './NewAlbum';
+import NewAlbumSelection from './NewAlbumSelection';
+import NewAlbumForm from './NewAlbumForm';
 
 function AlbumList(){
   const [showModal, setShowModal] = useState(false);
   const [albums, setAlbums] = useState([]);
+  const [newAlbum, setNewAlbum] =useState("");
+  
+  
 
   useEffect(() => {
     function fetchAlbums(){
@@ -19,9 +24,6 @@ function AlbumList(){
     fetchAlbums();
   }, []);
 
-  let albumHoverText = albums.length > 0 ? "New Album" : "";
-  let newAlbumText = albums.length > 0 ? "+" : "New Album";
-  let newAlbumClass = albums.length > 0 ? "list-item album-list-item new-button" : "list-item album-list-item new-button--first"
 
 return(
   <div className='album-list-container'>
@@ -44,13 +46,12 @@ return(
       </div>
       ) : (
       <div className="first-list-item">
-        <div class="first-list-item--text">You don't have any albums.</div>
-        <Link to="/new-album" className='first-list-item--link'>
+        <div class="first-list-item-text">You don't have any albums.</div>
+        <Link to="/new-album" className='first-list-item-button'>
           Create an album.
         </Link>
       </div>
       )
-
     }
   
   </div>
@@ -60,7 +61,7 @@ return(
   <Routes>
     <Route path="/new-album" element={
     <Modal>
-      <NewAlbum setAlbums={setAlbums}/>
+      <NewAlbum/>
     </Modal>
     } />
   </Routes>
