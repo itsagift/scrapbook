@@ -11,7 +11,7 @@ function Header({setUser}){
 }
 return(
   <header className='header'>
-    <Link to="/dashboard">Home</Link>
+    <Link to="/" exact>Home</Link>
     <button onClick={() => {handleLogout()}}>logout</button>
   </header>
 )

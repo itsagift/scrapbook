@@ -1,22 +1,59 @@
-import {useState} from 'react';
-function NewAlbumForm({description, title, setDescription, setTitle, setState, state}){
+import {useState, useEffect} from 'react';
+function NewAlbumForm({setState, state}){
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    if(state.editing) {
+      fetch(`/albums/${state.newAlbum.id}`)
+      .then(response => response.json())
+      .then(album => console.log(album))
+    }
+  }, [])
+
+  
+
+
   function handleSubmit () {
-    fetch(`/albums`, {
-      method: "POST",
+    if (!state.editing){
+      fetch(`/albums`, {
+        method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({ title: title, description: description})
+      })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Something went wrong');
+      })
+      .then(album => {
+        
+        setState({
+        newAlbum: album, 
+        count: state.count + 1 
+      })})
+      .catch((error) => console.log(error))
+    }
+    else{
+      fetch(`/albums/${state.newAlbum.id}`, {
+        method: "PATCH",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ title: title, description: description})
-    })
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error('Something went wrong');
-    })
-    .then(album => setState({
-      newAlbum: album, 
-      count: state.count + 1 
-    }))
-    .catch((error) => console.log(error))
+      })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Something went wrong');
+      })
+      .then(album => setState({
+        newAlbum: album, 
+        count: state.count + 1 
+      }))
+      .catch((error) => console.log(error))
+    }
+    
     }
   
 return(
@@ -27,7 +64,7 @@ return(
     handleSubmit()
   }}>
       <input className="new-album-input" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Title" value={title} required></input>
-      <input className="new-album-input" type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" value={description} oninvalid={(e) => alert(e.target.value)} required></input>
+      <input className="new-album-input" type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" value={description} onInvalid={(e) => alert(e.target.value)} required></input>
       <input type="submit" className="slide-button slide-button-nav slide-button-right" value="next"></input>
     </form>
   </>

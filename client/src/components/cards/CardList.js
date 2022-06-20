@@ -6,9 +6,9 @@ import NewCard from './NewCard';
 
 import { Routes, Route, Link } from 'react-router-dom';
 
-function CardList(){
+function CardList({cards, setCards}){
   const [showModal, setShowModal] = useState(false);
-  const [cards, setCards] = useState([]);
+  
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,16 +46,6 @@ return(
     <Link to="/new-card">
     <div className={newCardClass} data-hover={cardHoverText}>+</div></Link>
   </div>
-  
-  
-  <Routes>
-    <Route path="/new-card" element= {
-    <Modal>
-      <NewCard setCards={setCards} cards={cards}/>
-    </Modal>
-  }/>
-    <Route path="/img/:id" element={<Modal />} />
-  </Routes>
 
   </div>
 )

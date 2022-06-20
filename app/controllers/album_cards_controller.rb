@@ -1,7 +1,16 @@
 class AlbumCardsController < ApplicationController
-  def index_by_album
-    album = Album.find_by(id: params[:id], user_id: session[:user_id])
-    album_cards = AlbumCard.where(album_id: album.id)
-    render json: album_cards
+  def create 
+    album_data = params[:data]
+    album_data.each do |card|
+      AlbumCard.create(album_id: params[:album_id], card_id: card)
+    end
+    albumcards = AlbumCard.where(album_id: params[:album_id])
+    render json: albumcards, status: :created
+  end
+
+  private
+
+  def album_card_params
+    params.permit(:album_id, :card_id)
   end
 end

@@ -2,7 +2,7 @@ import {useNavigate} from 'react-router-dom';
 import {useState} from 'react';
 import {useEffect} from 'react';
 
-function NewAlbumSelection({newAlbum}){
+function NewAlbumSelection({newAlbum, setAlbums, albums}){
   const [selected, setSelected] = useState([])
   const [cards, setCards] = useState([])
 
@@ -18,30 +18,45 @@ function NewAlbumSelection({newAlbum}){
 
   function handleCheckboxChange(e){
     if (e.target.checked) {
-      if (!cards.includes(e.target.value)) {
-        setCards(prevState => ([...prevState, e.target.value]))
+      if (!selected.includes(e.target.value)) {
+        setSelected(prevState => ([...prevState, e.target.value]))
       }
     } else {
-      setCards(prevState => (prevState.filter(prevCard => prevCard.id !== e.target.value)))
+      setSelected(prevState => (prevState.filter(prevCard => prevCard.id !== e.target.value)))
     }
   }
 
   let navigate = useNavigate();
+
   function handleClose(){
-    navigate(-1);
+      fetch(`/album_cards`, {
+        method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({ data: selected, album_id: newAlbum.id})
+      })
+      .then(response => response.json())
+      .then(json => console.log(json))
+      .catch((error) => {
+        console.error('Error:', error);
+      })
+    setAlbums(prevState => [...prevState, newAlbum])
+    navigate(-1)
+    
   }
 return(
   <>
     <h1>Select Images</h1>
-    <form>
+    <form onSubmit={(e) => {
+    e.preventDefault();
+    handleClose()}}>
     <div className='album-card-selection-grid'>
       {
         cards.map((card)=> {
           if (card.image_url){
             return(
               <div className='album-card-selection'>
-              <label for={card.id}><img className="album-card-selection-img" src={card.image_url} loading="lazy"></img></label>
-              <input type="checkbox" id={card.id} class="album-card-checkbox" value={card.id} onChange={(e) => handleCheckboxChange(e)} />
+              <label htmlFor={card.id}><img className="album-card-selection-img" src={card.image_url} loading="lazy"></img></label>
+              <input type="checkbox" id={card.id} className="album-card-checkbox" value={card.id} onChange={(e) => handleCheckboxChange(e)} />
               
               </div>
             )
@@ -49,8 +64,10 @@ return(
         })
       }
     </div>
+    <input className="slide-button slide-button-right slide-button-done" type="submit" value="Done"></input>
     </form>
-    <button className="slide-button slide-button-right slide-button-done" onClick={()=> handleClose()}>Done</button>
+    
+    
   </>
 )
 }

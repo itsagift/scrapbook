@@ -3,26 +3,20 @@ import { DirectUpload } from 'activestorage';
 import NewAlbumSelection from './NewAlbumSelection';
 import NewAlbumForm from './NewAlbumForm';
 
-function NewAlbum(){
+function NewAlbum({setAlbums, albums}){
   const [state, setState] = useState({
     newAlbum: "", 
-    count: 0
+    count: 0, 
+    editing: false
   });
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  
 
   let components = [
     <NewAlbumForm 
-      setTitle={setTitle} 
-      setDescription={setDescription} 
-      title={title} 
-      description={description}
       setState={setState}
       state={state}/>,
-    <NewAlbumSelection newAlbum={state.newAlbum}/>
+    <NewAlbumSelection newAlbum={state.newAlbum} setAlbums={setAlbums} albums={albums}/>
   ]
-  
-  
 
   
   return (
@@ -30,7 +24,7 @@ function NewAlbum(){
     {
       components[state.count]
     }
-    {state.count > 0 && <button className="slide-button slide-button-nav slide-button-left" onClick={() => setState({...state, count: state.count - 1})}>prev</button>}
+    {state.count > 0 && <button className="slide-button slide-button-nav slide-button-left" onClick={() => setState({...state, count: state.count - 1, editing: true})}>prev</button>}
     
     
   </div>

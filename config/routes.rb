@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :album_cards, only: [:index, :show]
+  resources :album_cards, only: [:index, :show, :create, :destroy]
   resources :card_tags
   resources :tags
   resources :cards, only: [:index, :show, :create, :update, :destroy]

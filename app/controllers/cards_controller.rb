@@ -19,7 +19,7 @@ class CardsController < ApplicationController
     card = Card.find(params[:id])
     card.update(card_image: params[:card_image])
     card.update(image_url: rails_blob_path(card.card_image))
-    render json: card
+    render json: card, status: :ok
   end
 
   def destroy
