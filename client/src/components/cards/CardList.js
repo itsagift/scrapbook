@@ -43,7 +43,7 @@ return(
         )
       })
     }
-    <Link to="/new-card">
+    <Link to="/dashboard/new-card">
     <div className={newCardClass} data-hover={cardHoverText}>+</div></Link>
   </div>
 

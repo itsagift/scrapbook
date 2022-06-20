@@ -39,14 +39,14 @@ return(
       {
       albums.length > 0 ? (
       <div className="list-item album-list-item new-button" data-hover="New Album">
-        <Link to="/new-album">
+        <Link to="/dashboard/new-album">
           +
         </Link>
       </div>
       ) : (
       <div className="first-list-item">
         <div className="first-list-item-text">You don't have any albums.</div>
-        <Link to="/new-album" className='first-list-item-button'>
+        <Link to="/dashboard/new-album" className='first-list-item-button'>
           Create an album.
         </Link>
       </div>

@@ -329,12 +329,14 @@ a{
   position: relative;
 }
 
-.album-page-title{
-  width: 30%;
+.album-page-column > div > label > img { /* change div to reference your elements you put in <Masonry> */
+  width: 100%;
+  border-radius: 2px;
+  position: relative;
 }
 
-input[type=textarea] span {
-  font-family: "Georgia";
+.album-page-title{
+  width: 30%;
 }
 
 @media only screen and (max-width: 800px) {

@@ -7,9 +7,9 @@ import AlbumPage from './components/albums/AlbumPage';
 import {Routes, Route} from 'react-router-dom';
 
 import './App.css';
-import AlbumList from './components/albums/AlbumList';
-import CardList from './components/cards/CardList';
-import NewAlbum from './components/albums/NewAlbum';
+
+import Modal from './components/Modal';
+import AlbumCardSelection from './components/albums/AlbumCardSelection';
 
 function App() {
   const [user, setUser] = useState("");
@@ -45,8 +45,11 @@ function App() {
       <Header setUser={setUser}/>
 
       <Routes>
-        <Route path="/*" exact element={<Dashboard/>}/>
-        <Route path="/album/:id" element={<AlbumPage />} />
+        <Route path="/" exact element={<Dashboard/>}/>
+        <Route path="/dashboard/*" exact element={<Dashboard/>}/>
+        <Route path="/album/*" element={<AlbumPage />}/>
+        <Route path="/album/:id" element={<AlbumPage />}/>
+        <Route path="/album/:id/*" element={<AlbumPage />}/>
       </Routes>
       
     </div>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post '/rails/active_storage/direct_uploads', to: 'direct_uploads#create'
   get '/:id/albumcards', to: 'album_cards#index_by_album'
+
+  post '/album_cards_cards', to: 'album_cards#create_card'
     
   get '/me', to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

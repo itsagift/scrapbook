@@ -1,28 +1,26 @@
 import { useEffect, useState} from 'react';
-import {useParams, Link} from 'react-router-dom';
-import Masonry from 'react-masonry-css';
+import {useParams, Link, Route, Routes} from 'react-router-dom';
+
 import 'react-edit-text/dist/index.css';
 import { EditText, EditTextarea } from 'react-edit-text';
+
+import AlbumCards from './AlbumCards';
+import EditAlbumCards from './EditAlbumCards';
+import Modal from '../Modal'
+import AlbumCardSelection from './AlbumCardSelection';
 
 function AlbumPage(){
   let { id } = useParams();
 
   const [album, setAlbum] = useState({});
   const [loading, setLoading] = useState(true);
-  const [price, setPrice] = useState(0);
-
-  const breakpointColumnsObj = {
-    default: 5,
-    1100: 3,
-    700: 2,
-    500: 1
-  };
-  
+  const [selected, setSelected] = useState([]);
+  const [editing, setEditing] = useState(false);
   
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
 
   useEffect(() => {
@@ -34,7 +32,6 @@ function AlbumPage(){
     fetchAlbum();
     
   }, []);
-  let albumCards = album.album_cards;
 
   function handleTitleChange (e) {
     setAlbum({...album, title: e.target.value});
@@ -59,6 +56,20 @@ function AlbumPage(){
     .catch((error) => console.log(error))
   };
 
+  function handleButton(){
+    fetch(`/album_cards_cards`, {
+      method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ data: selected, album_id: album.id})
+    })
+    .then(response => response.json())
+    .then(json => setAlbum(json))
+    .catch((error) => {
+      console.error('Error:', error);
+    })
+    setEditing(!editing)
+  }
+
 
   return(
     <div className='album-page-container'>
@@ -76,32 +87,25 @@ function AlbumPage(){
         onSave={handleSave}
         style={{padding: 0, "font-size": "24px", "font-family": "Georgia"}}
       />
-      <Link to="/new-card">
-        <button>Add New Image</button>
+      <Link to="new">
+      <button>Add Images</button>
       </Link>
       {!loading ? (
-        <>
-      
-      <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className="album-page-grid"
-      columnClassName="album-page-column">
-      {albumCards.map((card)=> {
-        return (
-          <div>
-          <img src={card.card.image_url}></img>
-          </div>
-        )
-      })}
-      </Masonry>
-      </>
+        <AlbumCards albumCards={album.album_cards}/>
       ) :
       (
         <div>
           Loading
         </div>
       )}
-      
+    <Routes>
+    <Route path="new" element={
+      <Modal>
+        <AlbumCardSelection album={album} setAlbum={setAlbum}/>
+      </Modal>
+      } 
+    />
+    </Routes>
     </div>
   )
 }

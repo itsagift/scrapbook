@@ -17,13 +17,12 @@ function NewAlbumSelection({newAlbum, setAlbums, albums}){
   }, []);
 
   function handleCheckboxChange(e){
-    if (e.target.checked) {
-      if (!selected.includes(e.target.value)) {
-        setSelected(prevState => ([...prevState, e.target.value]))
-      }
-    } else {
-      setSelected(prevState => (prevState.filter(prevCard => prevCard.id !== e.target.value)))
+    if (!selected.includes(e.target.value)){
+      setSelected(prevState => ([...prevState, e.target.value]))
     }
+    else {
+      setSelected(prevState => (prevState.filter(prevCard => prevCard !== e.target.value)))
+    } 
   }
 
   let navigate = useNavigate();
@@ -35,7 +34,7 @@ function NewAlbumSelection({newAlbum, setAlbums, albums}){
           body: JSON.stringify({ data: selected, album_id: newAlbum.id})
       })
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => console.log("album response", json))
       .catch((error) => {
         console.error('Error:', error);
       })

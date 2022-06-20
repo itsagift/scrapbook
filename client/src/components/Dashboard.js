@@ -18,12 +18,12 @@ function Dashboard(){
       <CardList setCards={setCards} cards={cards}/>
       
     <Routes>
-    <Route path="/new-album" element={
+    <Route path="new-album" element={
       <Modal>
         <NewAlbum setAlbums={setAlbums} cards={cards}/>
       </Modal>
     } />
-    <Route path="/new-card" element= {
+    <Route path="new-card" element= {
       <Modal>
         <NewCard setCards={setCards} cards={cards}/>
       </Modal>
