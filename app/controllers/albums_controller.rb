@@ -16,7 +16,8 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    album = Album.update(description: params[:description], title: params[:title])
+    album  = Album.find_by(id: params[:id])
+    album.update(description: params[:description], title: params[:title])
     render json: album, status: :ok
   end
 

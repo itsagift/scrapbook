@@ -196,10 +196,18 @@ a{
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+  
 }
 .card-image{
   width: 100%;
-  transition: all 0.4s;
+  height: 100%;
+  object-fit:cover;
+  
+}
+
+.card-list-item-link{
+  width: 100px;
+  height: 100px;
 }
 
 .card-image:hover{
@@ -292,8 +300,43 @@ a{
 }
 
 .album-page-container{
-  
+  padding: 0 4%;
 }
+
+.album-page-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  padding-top: 10px;
+  margin-top: 50px;
+  background-color: var(--accent-light);
+}
+.album-page-column {
+  padding-left: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.album-page-column > div {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Style your items */
+.album-page-column > div >img { /* change div to reference your elements you put in <Masonry> */
+  width: 100%;
+  border-radius: 2px;
+  position: relative;
+}
+
+.album-page-title{
+  width: 30%;
+}
+
+input[type=textarea] span {
+  font-family: "Georgia";
+}
+
 @media only screen and (max-width: 800px) {
   .login-screen {
     width: 60%;

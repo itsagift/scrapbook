@@ -7,6 +7,7 @@ import {useState} from 'react';
 import {Routes, Route} from 'react-router-dom'
 import AlbumPage from "./albums/AlbumPage";
 
+
 function Dashboard(){
   const [cards, setCards] = useState([]);
   const [albums, setAlbums] = useState([]);
@@ -15,6 +16,7 @@ function Dashboard(){
     <div className="dashboard">
       <AlbumList setAlbums={setAlbums} albums={albums}/>
       <CardList setCards={setCards} cards={cards}/>
+      
     <Routes>
     <Route path="/new-album" element={
       <Modal>
@@ -27,7 +29,6 @@ function Dashboard(){
       </Modal>
     }/>
     <Route path="/img/:id" element={<Modal />} />
-    <Route path="/album/:id" element={<AlbumPage />} />
     </Routes>
     </div>
   )

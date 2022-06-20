@@ -8,15 +8,15 @@
 
 User.create(username: "usertest", password: "123", name: "User Test")
 
-Album.create(description: "A fake album", title: "Fake", user_id: 1)
-Album.create(description: "A fake album 2", title: "Fake 2", user_id: 1)
-Album.create(description: "A fake album 3", title: "Fake 3", user_id: 1)
-Album.create(description: "A fake album 4", title: "Fake 2", user_id: 1)
+# Album.create(description: "A fake album", title: "Fake", user_id: 1)
+# Album.create(description: "A fake album 2", title: "Fake 2", user_id: 1)
+# Album.create(description: "A fake album 3", title: "Fake 3", user_id: 1)
+# Album.create(description: "A fake album 4", title: "Fake 2", user_id: 1)
 
-Card.create(description: "Test photo 1", year: 1999)
-Card.create(description: "Test photo 2", year: 1999)
-Card.create(description: "Test photo 3", year: 1999)
-Card.create(description: "Test photo 4", year: 1999)
+# Card.create(description: "Test photo 1", year: 1999)
+# Card.create(description: "Test photo 2", year: 1999)
+# Card.create(description: "Test photo 3", year: 1999)
+# Card.create(description: "Test photo 4", year: 1999)
 
 AlbumCard.create(album_id: 1, card_id: 1)
 AlbumCard.create(album_id: 1, card_id: 2)

@@ -12,7 +12,7 @@ function CardListItem({card, setCards}){
   return(
     <div className="card-list-item">
       {card.image_url &&
-      <Link to={`/img/${card.id}`}>
+      <Link to={`/img/${card.id}`} className="card-list-item-link">
         <img className="card-image" src={card.image_url} loading="lazy"></img>
       </Link>
       }
