@@ -6,6 +6,7 @@ import NewCard from "./cards/NewCard";
 import {useState} from 'react';
 import {Routes, Route} from 'react-router-dom'
 import AlbumPage from "./albums/AlbumPage";
+import CardView from "./cards/CardView";
 
 
 function Dashboard(){
@@ -28,7 +29,11 @@ function Dashboard(){
         <NewCard setCards={setCards} cards={cards}/>
       </Modal>
     }/>
-    <Route path="/img/:id" element={<Modal />} />
+    <Route path="/img/:id" element={
+      <Modal >
+        <CardView setCards={setCards} cards={cards}/>
+      </Modal>
+    } />
     </Routes>
     </div>
   )

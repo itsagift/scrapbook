@@ -17,8 +17,8 @@ function AlbumCardSelection({album, setAlbum}){
     function fetchCards(){
       fetch(`/cards`)
       .then(response => response.json())
-      .then(result => setCards(result))
-      setSelected(cardIds)
+      .then(result => setCards(result.filter(card => !cardIds.includes(card.id)))
+      )
     }
     fetchCards();
     
@@ -49,7 +49,7 @@ function handleSubmit(){
       body: JSON.stringify({ data: selected, album_id: album.id})
   })
   .then(response => response.json())
-  .then(json => console.log(json))
+  .then(json => setAlbum(json))
   .catch((error) => {
     console.error('Error:', error);
   })

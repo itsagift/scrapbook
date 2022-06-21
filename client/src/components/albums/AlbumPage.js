@@ -5,9 +5,9 @@ import 'react-edit-text/dist/index.css';
 import { EditText, EditTextarea } from 'react-edit-text';
 
 import AlbumCards from './AlbumCards';
-import EditAlbumCards from './EditAlbumCards';
 import Modal from '../Modal'
 import AlbumCardSelection from './AlbumCardSelection';
+import CardView from '../cards/CardView';
 
 function AlbumPage(){
   let { id } = useParams();
@@ -73,20 +73,22 @@ function AlbumPage(){
 
   return(
     <div className='album-page-container'>
+      <div className='album-page-header'>
       <EditText
         name='textbox-title'
         value={album.title}
         onChange={(e) => handleTitleChange(e, setAlbum)}
         onSave={handleSave}
-        style={{padding: 0, "font-size": "48px", }}
+        style={{padding: 0, "font-size": "48px", "width": "50%"}}
       />
       <EditTextarea
         name='textbox-title'
         value={album.description}
         onChange={(e) => handleDescChange(e, setAlbum)}
         onSave={handleSave}
-        style={{padding: 0, "font-size": "24px", "font-family": "Georgia"}}
+        style={{padding: 0, "font-size": "24px", "font-family": "Georgia", "width": "30%"}}
       />
+      </div>
       <Link to="new">
       <button>Add Images</button>
       </Link>
@@ -102,6 +104,12 @@ function AlbumPage(){
     <Route path="new" element={
       <Modal>
         <AlbumCardSelection album={album} setAlbum={setAlbum}/>
+      </Modal>
+      } 
+    />
+    <Route path=":id" element={
+      <Modal>
+        <CardView/>
       </Modal>
       } 
     />

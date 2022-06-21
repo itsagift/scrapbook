@@ -276,16 +276,16 @@ a{
   overflow: scroll;
   display: grid; 
   grid-auto-columns: 1fr; 
-  grid-auto-rows: 1fr; 
+  grid-auto-rows: 100px; 
   grid-template-columns: 1fr 1fr 1fr; 
   gap: 10px 10px;
   padding: 10px;
 }
 
-.album-card-selection-img{
-  display: block;
-  max-width: 100%;
-  height: auto;
+.album-card-selection label > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .album-card-selection{
@@ -323,13 +323,7 @@ a{
 }
 
 /* Style your items */
-.album-page-column > div >img { /* change div to reference your elements you put in <Masonry> */
-  width: 100%;
-  border-radius: 2px;
-  position: relative;
-}
-
-.album-page-column > div > label > img { /* change div to reference your elements you put in <Masonry> */
+.album-page-column > div > a > img { /* change div to reference your elements you put in <Masonry> */
   width: 100%;
   border-radius: 2px;
   position: relative;
@@ -338,6 +332,12 @@ a{
 .album-page-title{
   width: 30%;
 }
+
+.landscape{
+  display: flex;
+  flex-direction: column;
+}
+
 
 @media only screen and (max-width: 800px) {
   .login-screen {

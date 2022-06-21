@@ -1,4 +1,5 @@
 import Masonry from 'react-masonry-css';
+import {Link} from 'react-router-dom';
 
 function AlbumCards({albumCards}){
 
@@ -16,9 +17,13 @@ function AlbumCards({albumCards}){
       columnClassName="album-page-column">
       {albumCards.map((card)=> {
         return (
-          <div>
+          
+          <div className='album-page-img'>
+          <Link to={`${card.card.id}`}>
           <img src={card.card.image_url}></img>
+          </Link>
           </div>
+          
         )
       })}
     </Masonry>
