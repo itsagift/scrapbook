@@ -74,24 +74,27 @@ function AlbumPage(){
   return(
     <div className='album-page-container'>
       <div className='album-page-header'>
-      <EditText
-        name='textbox-title'
-        value={album.title}
-        onChange={(e) => handleTitleChange(e, setAlbum)}
-        onSave={handleSave}
-        style={{padding: 0, "font-size": "48px", "width": "50%"}}
-      />
-      <EditTextarea
-        name='textbox-title'
-        value={album.description}
-        onChange={(e) => handleDescChange(e, setAlbum)}
-        onSave={handleSave}
-        style={{padding: 0, "font-size": "24px", "font-family": "Georgia", "width": "30%"}}
-      />
+        <EditText
+          name='textbox-title'
+          value={album.title}
+          onChange={(e) => handleTitleChange(e, setAlbum)}
+          onSave={handleSave}
+          style={{padding: 0, "font-size": "48px", "width": "50%"}}
+        />
+        <EditTextarea
+          name='textbox-title'
+          value={album.description}
+          onChange={(e) => handleDescChange(e, setAlbum)}
+          onSave={handleSave}
+          style={{padding: 0, "font-size": "24px", "font-family": "Georgia", "width": "30%"}}
+        />
       </div>
-      <Link to="new">
-      <button>Add Images</button>
-      </Link>
+        <Link to="new">
+          <button>Add Images</button>
+        </Link>
+        <Link to={`/timeline/${album.id}`}>
+          <button>Timeline</button>
+        </Link>
       {!loading ? (
         <AlbumCards albumCards={album.album_cards}/>
       ) :

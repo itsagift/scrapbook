@@ -51,7 +51,7 @@ function App() {
         <Route path="/album/*" element={<AlbumPage />}/>
         <Route path="/album/:id" element={<AlbumPage />}/>
         <Route path="/album/:id/*" element={<AlbumPage />}/>
-        <Route path="/timeline" element={<TimelineContainer />}/>
+        <Route path="/timeline/:id" element={<TimelineContainer />}/>
       </Routes>
       
     </div>
