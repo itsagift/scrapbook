@@ -26,17 +26,7 @@ return(
   <div className='album-list-container'>
     <h2>Your Albums</h2>
     <div className='album-list'>
-  {
-    !loading ? (
-      <>
-      {
-        albums.map((album, i) => {
-          return(
-            <AlbumListItem album={album} setAlbums={setAlbums}/>
-          )
-        })
-      }
-      {
+    {
       albums.length > 0 ? (
       <div className="list-item album-list-item new-button" data-hover="New Album">
         <Link to="/dashboard/new-album">
@@ -52,6 +42,17 @@ return(
       </div>
       )
     }
+  {
+    !loading ? (
+      <>
+      {
+        albums.map((album, i) => {
+          return(
+            <AlbumListItem album={album} setAlbums={setAlbums}/>
+          )
+        })
+      }
+      
       </>
     ) :
     ("loading")

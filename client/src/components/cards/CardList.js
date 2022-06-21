@@ -35,6 +35,9 @@ return(
   <div className='card-list-container'>
     <h2>All Cards</h2>
     <div className='card-list'>
+    <Link to="/dashboard/new-card">
+      <div className={newCardClass} data-hover={cardHoverText}>+</div>
+    </Link>
     {
       (!loading) &&
       cards.map((card) => {
@@ -43,8 +46,7 @@ return(
         )
       })
     }
-    <Link to="/dashboard/new-card">
-    <div className={newCardClass} data-hover={cardHoverText}>+</div></Link>
+    
   </div>
 
   </div>

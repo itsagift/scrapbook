@@ -4,12 +4,13 @@ import { DirectUpload } from 'activestorage';
 function NewCard({setCards, cards}){
   const [description, setDescription] = useState("");
   const [image, setImage] = useState({});
+  const [year, setYear] = useState("");
   
   function handleSubmit () {
     fetch(`/cards`, {
       method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ description: description})
+        body: JSON.stringify({ description: description, year: year})
     })
     .then(response => response.json())
     .then(result => uploadFile(image, result))
@@ -46,6 +47,7 @@ return(
     handleSubmit()
   }}>
   <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}></input>
+  <input type="text" placeholder="year" onChange={(e) => setYear(e.target.value)} value={year}></input>
   <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
   <input type="submit" value="submit test"></input>
   </form>

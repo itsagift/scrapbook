@@ -3,6 +3,7 @@ import LoginScreen from './components/LoginScreen';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import AlbumPage from './components/albums/AlbumPage';
+import TimelineContainer from './components/timeline/TimelineContainer';
 
 import {Routes, Route} from 'react-router-dom';
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/album/*" element={<AlbumPage />}/>
         <Route path="/album/:id" element={<AlbumPage />}/>
         <Route path="/album/:id/*" element={<AlbumPage />}/>
+        <Route path="/timeline" element={<TimelineContainer />}/>
       </Routes>
       
     </div>
