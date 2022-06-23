@@ -63,7 +63,7 @@ return(
         })
       }
     </div>
-    <input className="slide-button slide-button-right slide-button-done" type="submit" value="Done"></input>
+    <input className="modal-button modal-button-right modal-button-done" type="submit" value="Done"></input>
     </form>
     
     

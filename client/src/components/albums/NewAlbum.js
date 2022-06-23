@@ -24,7 +24,7 @@ function NewAlbum({setAlbums, albums}){
     {
       components[state.count]
     }
-    {state.count > 0 && <button className="slide-button slide-button-nav slide-button-left" onClick={() => setState({...state, count: state.count - 1, editing: true})}>prev</button>}
+    {state.count > 0 && <button className="modal-button modal-button-nav modal-button-left" onClick={() => setState({...state, count: state.count - 1, editing: true})}>prev</button>}
     
     
   </div>

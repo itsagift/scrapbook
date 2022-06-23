@@ -10,7 +10,7 @@ function AlbumList({albums, setAlbums}){
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 100);
   }, []);
 
   useEffect(() => {
@@ -23,16 +23,17 @@ function AlbumList({albums, setAlbums}){
   }, []);
 
 return(
-  <div className='album-list-container'>
+  <div className='section-container'>
     <h2>Your Albums</h2>
-    <div className='album-list'>
+    {!loading ? (
+    <div className='section-list'>
     {
       albums.length > 0 ? (
-      <div className="list-item album-list-item new-button" data-hover="New Album">
         <Link to="/dashboard/new-album">
-          +
+          <div className="album-list-item new-button" data-hover="New Album">
+              +
+          </div>
         </Link>
-      </div>
       ) : (
       <div className="first-list-item">
         <div className="first-list-item-text">You don't have any albums.</div>
@@ -42,9 +43,6 @@ return(
       </div>
       )
     }
-  {
-    !loading ? (
-      <>
       {
         albums.map((album, i) => {
           return(
@@ -52,19 +50,16 @@ return(
           )
         })
       }
-      
-      </>
+      </div>
     ) :
-    ("loading")
-  }
+    (<div className='album-list'>"loading"</div>)
+    }
     
   
   </div>
   
   
 
-  
-  </div>
 )
 }
 export default AlbumList

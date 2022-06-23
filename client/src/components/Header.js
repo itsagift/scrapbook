@@ -11,8 +11,11 @@ function Header({setUser}){
 }
 return(
   <header className='header'>
-    <Link to="/" exact>Home</Link>
-    <button onClick={() => {handleLogout()}}>logout</button>
+    <h1 className='header-logo'>Caroucel</h1>
+    <nav className='header-links'>
+      <div className='header-link'><Link to="/" exact>Home</Link></div>
+      <button className="button header-button" onClick={() => {handleLogout()}}>logout</button>
+    </nav>
   </header>
 )
 

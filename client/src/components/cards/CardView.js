@@ -13,7 +13,7 @@ function CardView({setCards, cards}){
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 1000);
   }, [])
 
   useEffect(() => {
@@ -51,8 +51,8 @@ function CardView({setCards, cards}){
   }
 
   return(
-    <div className={`card-view-container`}>
-      <img className="card-view-img" id="card-view-img" src={card.image_url} ref={img}/>
+    <div className={`card-view-container ${orientation}`}>
+      <img className={loading ? "card-view-img loading-img" : "card-view-img"} id="card-view-img" src={card.image_url} ref={img}/>
       {card.id}
       {orientation}
       <button onClick={()=> handleDelete(card)}>Delete</button>

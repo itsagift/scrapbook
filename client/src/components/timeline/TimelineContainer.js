@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import TimelineItem from "./TimelineItem";
 import { useParams } from "react-router-dom";
+import TimelineHeader from "./TimelineHeader";
 
 function TimelineContainer(){
   const [cards, setCards] = useState([]);
@@ -16,10 +17,9 @@ function TimelineContainer(){
     function fetchCards(){
       fetch(`/albums/${id}`)
       .then(response => response.json())
-      .then(result => console.log(result.album_cards));
+      .then(result => setCards(result.album_cards));
     }
     fetchCards();
-    
   }, []);
 
   function getFormattedData(items) {
@@ -44,6 +44,7 @@ function TimelineContainer(){
   
 return(
   <div className="timeline-container">
+    <TimelineHeader/>
   <div className="timeline">
     {dates.map(d => (
       <div className={cardExpanded.isExpanded && cardExpanded.selected.year == d ? "timeline-group-container-expanded" : "timeline-group-container"}>

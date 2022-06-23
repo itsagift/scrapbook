@@ -65,7 +65,7 @@ return(
   }}>
       <input className="new-album-input" type="text" onChange={(e) => setTitle(e.target.value)} placeholder="Title" value={title} required></input>
       <input className="new-album-input" type="text" onChange={(e) => setDescription(e.target.value)} placeholder="Description" value={description} onInvalid={(e) => alert(e.target.value)} required></input>
-      <input type="submit" className="slide-button slide-button-nav slide-button-right" value="next"></input>
+      <input type="submit" className="modal-button modal-button-nav modal-button-right" value="next"></input>
     </form>
   </>
 )

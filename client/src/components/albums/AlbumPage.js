@@ -79,22 +79,29 @@ function AlbumPage(){
           value={album.title}
           onChange={(e) => handleTitleChange(e, setAlbum)}
           onSave={handleSave}
-          style={{padding: 0, "font-size": "48px", "width": "50%"}}
+          style={{padding: 0, "font-size": "48px", "width": "50%", "fontFamily": "Work Sans", "fontWeight": 700}}
         />
         <EditTextarea
           name='textbox-title'
           value={album.description}
           onChange={(e) => handleDescChange(e, setAlbum)}
           onSave={handleSave}
-          style={{padding: 0, "font-size": "24px", "font-family": "Georgia", "width": "30%"}}
+          style={{padding: 0, "font-size": "16px", "fontFamily": "Roboto Slab", "width": "30%"}}
         />
       </div>
+      <nav className='album-nav'>
         <Link to="new">
-          <button>Add Images</button>
+          <button className='button'>+ Add Images</button>
         </Link>
+        <div className='album-nav-views'>
         <Link to={`/timeline/${album.id}`}>
-          <button>Timeline</button>
+          <button className='button timeline-button'>Timeline View</button>
         </Link>
+        <Link to={`/slideshow/${album.id}`}>
+          <button className='button slideshow-button'>Slideshow View</button>
+        </Link>
+        </div>
+      </nav>
       {!loading ? (
         <AlbumCards albumCards={album.album_cards}/>
       ) :
