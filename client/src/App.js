@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import AlbumPage from './components/albums/AlbumPage';
 import TimelineContainer from './components/timeline/TimelineContainer';
+import PersonPage from './components/people/PersonPage'
 
 import {Routes, Route} from 'react-router-dom';
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/album/:id" element={<AlbumPage />}/>
         <Route path="/album/:id/*" element={<AlbumPage />}/>
         <Route path="/timeline/:id" element={<TimelineContainer />}/>
+        <Route path="/person/:id" element={<PersonPage />}/>
       </Routes>
       
     </div>

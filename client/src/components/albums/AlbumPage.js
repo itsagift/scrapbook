@@ -100,9 +100,6 @@ function AlbumPage(){
         <Link to={`/timeline/${album.id}`}>
           <button className='button timeline-button'>Timeline View</button>
         </Link>
-        <Link to={`/slideshow/${album.id}`}>
-          <button className='button slideshow-button'>Slideshow View</button>
-        </Link>
         </div>
       </nav>
       {!loading ? (

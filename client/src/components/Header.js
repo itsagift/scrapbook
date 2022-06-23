@@ -11,7 +11,7 @@ function Header({setUser}){
 }
 return(
   <header className='header'>
-    <Link to="/" exact><h1 className='header-logo'>Caroucel</h1></Link>
+    <Link to="/" exact><h1 className='header-logo'>Carousel</h1></Link>
     <nav className='header-links'>
       <div className='header-link'><Link to="/" exact>Home</Link></div>
       <button className="button header-button" onClick={() => {handleLogout()}}>logout</button>

@@ -24,7 +24,7 @@ function LoginForm({setUser}){
   }
 
   return(
-    <form autoComplete="off" className="login-tab-form" action="/login" method="POST" onSubmit={(e) => {
+    <form autocomplete="off" className="login-tab-form" action="/login" method="POST" onSubmit={(e) => {
       e.preventDefault();
       handleLogin()
     }}>
@@ -32,7 +32,7 @@ function LoginForm({setUser}){
         <input type="text" className="login-form-input" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Username" autoComplete='off'></input>
         <input type="password" className="login-form-input" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Password" autoComplete='off'></input>
       </div>
-      <input type="submit" className='form-button' value="Login"></input>
+      <input type="submit" className='button login-button' value="Login"></input>
     </form>
   )
 }

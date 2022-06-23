@@ -6,7 +6,7 @@ function Modal({children, showModal, setShowModal}){
   useEffect(() => {
     function handleEscapeKey(e) {
       if (e.code === 'Escape') {
-        setShowModal(false)
+        navigate(-1);
       }
     }
   
@@ -22,7 +22,7 @@ function Modal({children, showModal, setShowModal}){
   return(
     <div className="modal">
       <div className='modal-content'>
-        <button onClick={()=> handleModal()}>Close</button>
+        <button className="modal-close-button" onClick={()=> handleModal()}>X</button>
         {children}
       </div>
     </div>

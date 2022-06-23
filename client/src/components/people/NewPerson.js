@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import { DirectUpload } from 'activestorage';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function NewPerson({setPeople, person}){
   const [name, setName] = useState("");
   const [image, setImage] = useState({});
+  let nav = useNavigate();
 
   function handleSubmit () {
     fetch(`/people`, {
@@ -35,19 +37,21 @@ function NewPerson({setPeople, person}){
           })
           .then(response => response.json())
           .then(person => setPeople(prevState => [...prevState, person]))
-          console.log(person)
+          nav(-1);
         }
       })
     }
 return(
   <div className='new-card'>
-  <form onSubmit={(e) => {
+  <form className="new-form" onSubmit={(e) => {
     e.preventDefault();
     handleSubmit()
   }}>
-  <input type="text" onChange={(e) => setName(e.target.value)} value={name}></input>
-  <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
-  <input type="submit" value="submit test"></input>
+  <h4>Enter the person's name: </h4>
+  <input className="new-input" type="text" onChange={(e) => setName(e.target.value)} value={name}></input>
+  <h4>Upload an image: </h4>
+  <input className="new-input" type="file" onChange={(e) => setImage(e.target.files[0])}></input>
+  <input className="button submit-button" type="submit" value="submit test"></input>
   </form>
 </div>
 )

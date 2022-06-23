@@ -6,7 +6,7 @@ function LoginScreen ({setUser}){
   return(
     <div className='login-screen-container'>
     <div className='login-screen'>
-     <a href="/"> <img src='/logo2.png'/></a>
+    <h1 className='login-title'>Carousel</h1>
     <div className='login-links'>
     <NavLink
         className={({ isActive }) => (isActive ? 'login-link login-link--active' : 'login-link')}

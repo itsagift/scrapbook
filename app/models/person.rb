@@ -1,6 +1,7 @@
 class Person < ApplicationRecord
-  has_one :tag
-  
+  has_one :tag, dependent: :destroy
+  has_many :card_tags, through: :tag
+  has_many :cards, through: :card_tags
   has_one_attached :person_image
 
   def test_url

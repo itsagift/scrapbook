@@ -42,14 +42,17 @@ function NewCard({setCards, cards}){
   }
 return(
   <div className='new-card'>
-  <form onSubmit={(e) => {
+  <form className='new-form' onSubmit={(e) => {
     e.preventDefault();
     handleSubmit()
   }}>
-  <input type="text" onChange={(e) => setDescription(e.target.value)} value={description}></input>
-  <input type="text" placeholder="year" onChange={(e) => setYear(e.target.value)} value={year}></input>
-  <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
-  <input type="submit" value="submit test"></input>
+  <h4>Enter a card description</h4>
+  <input className="new-input" type="text" placeholder="description" onChange={(e) => setDescription(e.target.value)} value={description}></input>
+  <h4>Enter the year it was taken.</h4>
+  <input className="new-input" type="text" placeholder="year" onChange={(e) => setYear(e.target.value)} value={year}></input>
+  <h4>Upload an image: </h4>
+  <input className="new-input" type="file" onChange={(e) => setImage(e.target.files[0])}></input>
+  <input className="button submit-button" type="submit" value="submit test"></input>
   </form>
 </div>
 )
