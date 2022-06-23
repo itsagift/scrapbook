@@ -455,6 +455,11 @@ h1{
 .album-page-header{
   margin-top: 40px;
   margin-bottom: 20px;
+  color: var(--accent-dark);
+}
+
+.album-edit:hover {
+  background-color: rgb(255, 255, 255, 0.5);
 }
 
 .album-nav{
@@ -519,7 +524,7 @@ h1{
   border: 3px solid #e17b77;
   border-radius: 50%;
   position: absolute;
-  top: 32px;
+  top: 0px;
   right: calc(56% - 10px);
   width: 20px;
   height: 20px;
@@ -531,7 +536,7 @@ h1{
   border: 3px solid #e17b77;
   border-radius: 50%;
   position: absolute;
-  top: 32px;
+  top: 0px;
   right: calc(56% - 10px);
   width: 20px;
   height: 20px;
@@ -544,22 +549,24 @@ h1{
   margin-top: 40px;
   position: relative;
 }
-.timeline-group::before{
-  content: attr(data-attribute);
+.timeline-date{
   position: absolute;
   right: 0%;
-  top: -30px;
+  top: -90px;
   padding-bottom: 20px;
   font-size: 48px;
+  z-index: 99;
+  color: #000;
 }
 
-.timeline-group-expanded::before{
-  content: attr(data-attribute);
+.timeline-date-expanded{
   position: absolute;
   right: 50%;
-  top: -30px;
+  top: -90px;
   padding-bottom: 20px;
   font-size: 48px;
+  z-index: 99;
+  color: #000;
 }
 
 .timeline-item{
@@ -583,8 +590,7 @@ h1{
   margin-bottom: 30px;
   z-index: 1;
   padding: 10px;
-  padding-left: 0;
-  padding-top: 0;
+  padding-bottom:25px;
   background-color: #fff;
   box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.1);
   

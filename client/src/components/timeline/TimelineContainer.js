@@ -49,7 +49,7 @@ return(
     {dates.map(d => (
       <div className={cardExpanded.isExpanded && cardExpanded.selected.year == d ? "timeline-group-container-expanded" : "timeline-group-container"}>
       <div className={cardExpanded.isExpanded && cardExpanded.selected.year == d ? "timeline-group-expanded" : "timeline-group"} data-attribute={d}>
-        <h1 className={cardExpanded.isExpanded && cardExpanded.selected.year == d ? "timeline-date-expanded" : "timeline-date"}></h1>
+        <h1 className={cardExpanded.isExpanded && cardExpanded.selected.year == d ? "timeline-date-expanded" : "timeline-date"}>{d}</h1>
         {activities[d].map((card) => (
           <TimelineItem card={card} setCardExpanded={setCardExpanded} cardExpanded={cardExpanded} d={d}/>
         ))}

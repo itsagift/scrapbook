@@ -80,12 +80,15 @@ function AlbumPage(){
           onChange={(e) => handleTitleChange(e, setAlbum)}
           onSave={handleSave}
           style={{padding: 0, "font-size": "48px", "width": "50%", "fontFamily": "Work Sans", "fontWeight": 700}}
+          className="album-edit"
+          inputClassName="album-edit"
         />
         <EditTextarea
           name='textbox-title'
           value={album.description}
           onChange={(e) => handleDescChange(e, setAlbum)}
           onSave={handleSave}
+          className="album-edit"
           style={{padding: 0, "font-size": "16px", "fontFamily": "Roboto Slab", "width": "30%"}}
         />
       </div>

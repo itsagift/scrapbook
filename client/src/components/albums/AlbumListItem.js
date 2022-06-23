@@ -9,14 +9,17 @@ function AlbumListItem({album, setAlbums}){
   }
 
   return(
+    <Link to={`/album/${album.id}`}>
     <div className='list-item album-list-item'>
+      
       <div class="album-list-item-text">
-        <Link to={`/album/${album.id}`}>
+        
           <div className="album-list-item-title">{album.title}</div>
-        </Link>
+       
       </div>
-    <button onClick={() => deleteAlbum(album)}>delete</button>
+    
     </div>
+    </Link>
   )
 }
 
